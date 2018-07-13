@@ -11,37 +11,37 @@ import (
 //struct for database
 
 type User struct {
-	ID        			int        `sql:"AUTO_INCREMENT" gorm:"primary_key"`
-	Firstname      		string     `sql:"size:255"`
-	Lastname			string	   `sql:"size:255"`
-	Password			string	   `sql:"size:255;index"`
-	CreationDate		time.Time
-	LastModification	time.Time 	`sql:"DEFAULT:current_timestamp"`
-	PasswordReset		[]PasswordReset
-	Address				Address
-	Role				Role
-	FacebookID			string	   `sql:"size:255;index"`
-	GoogleID			string	   `sql:"size:255;index"`
-	Deleted          	bool       `sql:"DEFAULT:false"`
+	ID                int        `sql:"AUTO_INCREMENT" gorm:"primary_key"`
+	Firstname         string     `sql:"size:255"`
+	Lastname          string     `sql:"size:255"`
+	Password          string     `sql:"size:255;index"`
+	CreationDate      time.Time
+	LastModification  time.Time  `sql:"DEFAULT:current_timestamp"`
+	PasswordReset     []PasswordReset
+	Address           Address
+	Role              Role
+	FacebookID        string     `sql:"size:255;index"`
+	GoogleID          string     `sql:"size:255;index"`
+	Deleted           bool       `sql:"DEFAULT:false"`
 }
 
 type PasswordReset struct {
-	Token			string	   `sql:"size:255;index"`
-	ExpirationDate	time.Time `sql:"DEFAULT:current_timestamp"`
+	Token            string	     `sql:"size:255;index"`
+	ExpirationDate	time.Time    `sql:"DEFAULT:current_timestamp"`
 }
 
 type Address struct {
-	Country  string `gorm:"primary_key"`
-	City     string `gorm:"primary_key"`
-	PostCode string `gorm:"primary_key"`
-	Line1    string `sql:"size:255"`
-	Line2    string `sql:"size:255"`
-}
+	Country  string              `gorm:"primary_key"`
+	City     string              `gorm:"primary_key"`
+	PostCode string              `gorm:"primary_key"`
+	Line1    string              `sql:"size:255"`
+	Line2    string              `sql:"size:255"`
+}  
 
 
 type Role struct {
-	Name			string	   `sql:"size:255;index"`
-	CreationDate 	time.Time  `sql:"DEFAULT:current_timestamp"`
+	Name            string       `sql:"size:255;index"`
+	CreationDate    time.Time    `sql:"DEFAULT:current_timestamp"`
 }
 
 
